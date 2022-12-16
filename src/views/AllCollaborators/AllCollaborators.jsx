@@ -11,6 +11,9 @@ const AllCollaborators = () => {
   const navigate = useNavigate();
 
   const [collaborators, setCollaborators] = useState(null);
+  const [searchBy, setSearchBy] = useState("name");
+  const [searchByText, setSearchByText] = useState("");
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     if (!loading && !userData) navigate("/");
@@ -28,13 +31,85 @@ const AllCollaborators = () => {
         <Header />
         <div className="allCollaborators">
           <h2>Liste des collaborateurs</h2>
+          <div className="filter">
+            <input
+              type="text"
+              name="searchByText"
+              value={searchByText}
+              onChange={(e) => setSearchByText(e.target.value.toLowerCase())}
+            />
+            <div>
+              Rechercher par:{" "}
+              <select
+                name="searchBy"
+                value={searchBy}
+                onChange={(e) => setSearchBy(e.target.value)}
+              >
+                <option value="name">Name</option>
+                <option value="location">Localisation</option>
+              </select>
+            </div>
+            <div>
+              Catégorie:{" "}
+              <select
+                name="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="">- Aucune -</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Technique">Technique</option>
+                <option value="Client">Client</option>
+              </select>
+            </div>
+          </div>
           {collaborators &&
-            collaborators?.map((collaborator) => (
-              <CollaboratorCard
-                key={collaborator.id}
-                userInfos={collaborator}
-              />
-            ))}
+            collaborators
+              // FILTER BY SEARCH NAME/LOCATION
+              .filter((collaborator) => {
+                if (!searchByText) return collaborator;
+                if (searchBy === "name") {
+                  if (
+                    collaborator.firstname
+                      .toLowerCase()
+                      .includes(searchByText) ||
+                    collaborator.lastname.toLowerCase().includes(searchByText)
+                  )
+                    return collaborator;
+                } else if (searchBy === "location") {
+                  if (collaborator.city.toLowerCase().includes(searchByText))
+                    return collaborator;
+                }
+              })
+              // FILTER BY CATEGORY
+              .filter((collaborator) => {
+                if (!category) return collaborator;
+                if (collaborator.service === category) return collaborator;
+              })
+              // SORT BY INDEX IF SERCH_BY_TEXT
+              .sort((a, b) => {
+                if (!searchByText) return;
+                if (searchBy === "name") {
+                  const afullname = a.firstname + " " + a.lastname;
+                  const bfullname = b.firstname + " " + b.lastname;
+                  return (
+                    afullname.toLowerCase().indexOf(searchByText) -
+                    bfullname.toLowerCase().indexOf(searchByText)
+                  );
+                } else if (searchBy === "location") {
+                  return (
+                    a.city.toLowerCase().indexOf(searchByText) -
+                    b.city.toLowerCase().indexOf(searchByText)
+                  );
+                }
+              })
+              // MAP ALL USERS RESULT
+              .map((collaborator) => (
+                <CollaboratorCard
+                  key={collaborator.id}
+                  userInfos={collaborator}
+                />
+              ))}
         </div>
       </>
     );

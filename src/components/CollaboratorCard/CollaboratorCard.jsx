@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import "./collaboratorCard.css";
 
 const CollaboratorCard = ({ userInfos }) => {
-  // useEffect(() => {
-  //   console.log(userInfos);
-  // }, []);
-
   return (
     <div className="collaborator-card">
       <img
@@ -13,6 +8,7 @@ const CollaboratorCard = ({ userInfos }) => {
         alt={`${userInfos.firstname} ${userInfos.lastname}`}
       />
       <div>
+        <span className="service">{userInfos.service}</span>
         <h3>
           {userInfos.firstname} {userInfos.lastname}
         </h3>
