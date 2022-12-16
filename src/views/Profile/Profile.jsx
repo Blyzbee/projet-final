@@ -1,22 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserDataContext from "../../contexts/UserContext";
 import Loading from "../../components/Loading/Loading";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 const Profile = () => {
   const { userData, loading } = useContext(UserDataContext);
+  const navigate = useNavigate();
 
-  if (userData) {
+  useEffect(() => {
+    if (!loading && !userData) navigate("/");
+  }, [loading, userData]);
+
+  if (loading) return <Loading />;
+  else
     return (
-      <div className="profile">
-        <h2>Page de profil</h2>
-      </div>
+      <>
+        <Header />
+        <div className="profile">
+          <h2>Page de profil</h2>
+        </div>
+      </>
     );
-  } else if (loading) {
-    <Loading />;
-  } else {
-    redirect("/");
-  }
 };
 
 export default Profile;

@@ -1,0 +1,8 @@
+.collaborator-card {
+  display: flex;
+}
+
+.collaborator-card > div {
+  display: flex;
+  flex-direction: column;
+}

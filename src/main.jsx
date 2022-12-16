@@ -8,6 +8,7 @@ import Profile from "./views/Profile/Profile";
 import ErrorPage from "./views/ErrorPage/ErrorPage";
 import "./index.css";
 import { UserProvider } from "./contexts/UserContext";
+import AddCollaborator from "./views/AddCollaborator/AddCollaborator";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/add-collaborator",
+    element: <AddCollaborator />,
   },
 ]);
 
