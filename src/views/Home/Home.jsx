@@ -27,6 +27,14 @@ const Home = () => {
           <>
             <h2>Dites bonjour à {randomUser?.firstname}</h2>
             <CollaboratorCard userInfos={randomUser} />
+            <button
+              className="button"
+              onClick={() =>
+                getRandomUser().then((res) => setRandomUser(res.data))
+              }
+            >
+              Dire bonjour à un autre collaborateur
+            </button>
           </>
         )}
       </div>

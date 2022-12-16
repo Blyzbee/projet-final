@@ -21,6 +21,10 @@ const CollaboratorCard = ({ userInfos }) => {
         <a href={`tel:${userInfos.phone}`}>{userInfos.phone}</a>
         <span>Anniversaire: {userInfos.birthdate}</span>
       </div>
+      <div className="buttons-container">
+        <button className="button">Editer</button>
+        <button className="button warning">Supprimer</button>
+      </div>
     </div>
   );
 };
