@@ -1,3 +1,4 @@
+import { birthdateParsing } from "../../services/utils";
 import "./collaboratorCard.css";
 
 const CollaboratorCard = ({ userInfos }) => {
@@ -12,7 +13,7 @@ const CollaboratorCard = ({ userInfos }) => {
         <h3>
           {userInfos.firstname} {userInfos.lastname}
         </h3>
-        <span className="age">20 ans</span>
+        <span className="age">{birthdateParsing(userInfos.birthdate)} ans</span>
         <span>
           {userInfos.city}, {userInfos.country}
         </span>

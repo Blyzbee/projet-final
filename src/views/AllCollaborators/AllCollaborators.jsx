@@ -4,7 +4,7 @@ import CollaboratorCard from "../../components/CollaboratorCard/CollaboratorCard
 import Header from "../../components/Header/Header";
 import Loading from "../../components/Loading/Loading";
 import UserDataContext from "../../contexts/UserContext";
-import { getAllUsers } from "../../services/Axios";
+import { getAllUsers } from "../../services/axios";
 
 const AllCollaborators = () => {
   const { userData, loading } = useContext(UserDataContext);

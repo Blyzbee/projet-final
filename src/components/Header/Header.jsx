@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import UserDataContext from "../../contexts/UserContext";
-import { logout } from "../../services/Axios";
+import { logout } from "../../services/axios";
 
 const Header = () => {
   const { userData, setUserData } = useContext(UserDataContext);
