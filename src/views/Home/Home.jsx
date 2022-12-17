@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CollaboratorCard from "../../components/CollaboratorCard/CollaboratorCard";
 import Header from "../../components/Header/Header";
 import UserDataContext from "../../contexts/UserContext";
-import { getRandomUser } from "../../services/Axios";
+import { getRandomUser } from "../../services/axios";
 
 const Home = () => {
   const navigate = useNavigate();

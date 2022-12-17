@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverURL = "http://localhost:7000";
+const serverURL = "http://localhost:9000";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
   "token"

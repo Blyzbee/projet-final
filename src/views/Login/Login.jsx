@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import UserDataContext from "../../contexts/UserContext";
-import { login } from "../../services/Axios";
+import { login } from "../../services/axios";
 import "./login.css";
 
 const Login = () => {
