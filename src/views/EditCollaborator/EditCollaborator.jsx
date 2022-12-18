@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import UserDataContext from "../../contexts/UserContext";
-import Loading from "../../components/Loading/Loading";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import AddEditUserForm from "../../components/AddEditUserForm/AddEditUserForm";
+import Header from "../../components/Header/Header";
+import Loading from "../../components/Loading/Loading";
+import UserDataContext from "../../contexts/UserContext";
 
-const Profile = () => {
+const EditCollaborator = () => {
   const { userData, loading } = useContext(UserDataContext);
   const navigate = useNavigate();
 
@@ -18,12 +18,12 @@ const Profile = () => {
     return (
       <>
         <Header />
-        <div className="profil">
-          <h2>Modifier mon profil</h2>
+        <div className="edit-collaborator">
+          <h2>Modifier un collaborateur</h2>
           <AddEditUserForm edit />
         </div>
       </>
     );
 };
 
-export default Profile;
+export default EditCollaborator;

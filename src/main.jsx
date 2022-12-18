@@ -9,6 +9,7 @@ import ErrorPage from "./views/ErrorPage/ErrorPage";
 import "./index.css";
 import { UserProvider } from "./contexts/UserContext";
 import AddCollaborator from "./views/AddCollaborator/AddCollaborator";
+import EditCollaborator from "./views/EditCollaborator/EditCollaborator";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/add-collaborator",
     element: <AddCollaborator />,
+  },
+  {
+    path: "/edit-collaborator/:id",
+    element: <EditCollaborator />,
   },
 ]);
 

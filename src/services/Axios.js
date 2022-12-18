@@ -77,15 +77,40 @@ export const addUser = async (
 };
 
 // MODIFY USER
-export const modifyUser = async (userId, allinfos) => {
+export const editUser = async (
+  userId,
+  gender,
+  service,
+  lastname,
+  firstname,
+  email,
+  password,
+  phone,
+  birthdate,
+  city,
+  country,
+  photo,
+  isAdmin
+) => {
   const res = await axios.post(`${serverURL}/api/collaborateurs/${userId}`, {
-    allinfos,
+    gender,
+    service,
+    lastname,
+    firstname,
+    email,
+    password,
+    phone,
+    birthdate,
+    city,
+    country,
+    photo,
+    isAdmin,
   });
   return res;
 };
 
 // DELETE USER
 export const deleteUser = async (userId) => {
-  const res = await axios.post(`${serverURL}/api/collaborateurs/${userId}`);
+  const res = await axios.delete(`${serverURL}/api/collaborateurs/${userId}`);
   return res;
 };

@@ -1,10 +1,13 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import UserDataContext from "../../contexts/UserContext";
+import { deleteUser } from "../../services/axios";
 import { birthdateParsing } from "../../services/utils";
 import "./collaboratorCard.css";
 
-const CollaboratorCard = ({ userInfos }) => {
+const CollaboratorCard = ({ userInfos, refreshData }) => {
   const { userData } = useContext(UserDataContext);
+  const navigate = useNavigate();
 
   return (
     <div className="collaborator-card">
@@ -27,8 +30,18 @@ const CollaboratorCard = ({ userInfos }) => {
       </div>
       {userData?.isAdmin && (
         <div className="buttons-container">
-          <button className="button">Editer</button>
-          <button className="button warning">Supprimer</button>
+          <button
+            className="button"
+            onClick={() => navigate(`/edit-collaborator/${userInfos.id}`)}
+          >
+            Editer
+          </button>
+          <button
+            className="button warning"
+            onClick={() => deleteUser(userInfos.id).then(() => refreshData())}
+          >
+            Supprimer
+          </button>
         </div>
       )}
     </div>
