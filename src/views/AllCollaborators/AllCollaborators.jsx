@@ -45,7 +45,7 @@ const AllCollaborators = () => {
                 value={searchBy}
                 onChange={(e) => setSearchBy(e.target.value)}
               >
-                <option value="name">Name</option>
+                <option value="name">Nom</option>
                 <option value="location">Localisation</option>
               </select>
             </div>

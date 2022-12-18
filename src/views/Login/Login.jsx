@@ -10,7 +10,7 @@ const Login = () => {
   const { userData, loading, setUserData } = useContext(UserDataContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     if (!loading && userData) navigate("/home");
@@ -28,8 +28,9 @@ const Login = () => {
             login(email, password)
               .then((res) => setUserData(res.data.user))
               .catch((err) => {
-                if (err.response.data.error) setError(err.response.data.error);
-                else setError("Erreur inconnue");
+                if (err.response.data.error)
+                  setErrorMsg(err.response.data.error);
+                else setErrorMsg("Erreur inconnue");
               });
           }}
         >
@@ -48,7 +49,7 @@ const Login = () => {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && <span className="error">{error}</span>}
+          {errorMsg && <span className="errorMsg">{errorMsg}</span>}
           <button className="button">Connexion</button>
         </form>
       </div>

@@ -32,7 +32,18 @@ body {
   min-height: 100vh;
 }
 
-.error {
+input,
+select {
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.errorMsg {
   color: var(--error-color);
 }
 

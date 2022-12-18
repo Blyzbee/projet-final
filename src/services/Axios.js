@@ -45,8 +45,34 @@ export const getRandomUser = async () => {
 };
 
 // ADD USER
-export const addUser = async () => {
-  const res = await axios.post(`${serverURL}/api/collaborateurs`);
+export const addUser = async (
+  gender,
+  service,
+  lastname,
+  firstname,
+  email,
+  password,
+  phone,
+  birthdate,
+  city,
+  country,
+  photo,
+  isAdmin
+) => {
+  const res = await axios.post(`${serverURL}/api/collaborateurs`, {
+    gender,
+    service,
+    lastname,
+    firstname,
+    email,
+    password,
+    phone,
+    birthdate,
+    city,
+    country,
+    photo,
+    isAdmin,
+  });
   return res;
 };
 
