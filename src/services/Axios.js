@@ -92,7 +92,7 @@ export const editUser = async (
   photo,
   isAdmin
 ) => {
-  const res = await axios.post(`${serverURL}/api/collaborateurs/${userId}`, {
+  const res = await axios.put(`${serverURL}/api/collaborateurs/${userId}`, {
     gender,
     service,
     lastname,

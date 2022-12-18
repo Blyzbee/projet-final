@@ -44,7 +44,7 @@ const AddEditUserForm = ({ edit }) => {
       !lastname ||
       !firstname ||
       !email ||
-      !password ||
+      (!password && !edit) ||
       !phone ||
       !birthdate ||
       !city ||
@@ -71,7 +71,13 @@ const AddEditUserForm = ({ edit }) => {
         country,
         photo,
         isAdmin
-      );
+      )
+        .then(() => {
+          alert("Utilisateur modifié !");
+        })
+        .catch((err) =>
+          alert("Erreur lors de la modification de l'utilisateur")
+        );
     } else {
       addUser(
         gender,
@@ -86,7 +92,11 @@ const AddEditUserForm = ({ edit }) => {
         country,
         photo,
         isAdmin
-      );
+      )
+        .then(() => {
+          alert("Utilisateur créé !");
+        })
+        .catch((err) => alert("Erreur lors de la création de l'utilisateur"));
     }
   };
 
