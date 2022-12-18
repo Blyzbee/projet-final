@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #646cff;
+  --primary-color: #87ceeb;
   --dark-color: #242424;
   --light-color: #f9f9f9;
   --darkblue-color: #213547;
-  --error-color: #bb3935;
+  --error-color: #ff4500;
 
   font-family: Helvetica, Arial, sans-serif;
 
@@ -55,6 +55,7 @@ input[type="checkbox"] {
   font-weight: 500;
   font-family: inherit;
   background-color: var(--primary-color);
+  color: var(--dark-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }

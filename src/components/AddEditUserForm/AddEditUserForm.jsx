@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useState, useEffect } from "react";
+import UserDataContext from "../../contexts/UserContext";
 import { addUser, editUser, getUser } from "../../services/axios";
 import "./addEditUserForm.css";
 
 const AddEditUserForm = ({ edit }) => {
   const userId = window.location.pathname.split("/")[2];
+  const { userData } = useContext(UserDataContext);
   const [gender, setGender] = useState("male");
   const [service, setService] = useState("Marketing");
   const [lastname, setLastname] = useState("");
@@ -20,8 +23,8 @@ const AddEditUserForm = ({ edit }) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
-    if (edit)
-      getUser(userId).then((res) => {
+    if (edit && userData)
+      getUser(userId ? userId : userData.id).then((res) => {
         setGender(res.data.gender);
         setService(res.data.service);
         setLastname(res.data.lastname);
@@ -32,8 +35,9 @@ const AddEditUserForm = ({ edit }) => {
         setCity(res.data.city);
         setCountry(res.data.country);
         setPhoto(res.data.photo);
+        setIsAdmin(userId ? false : userData.isAdmin);
       });
-  }, []);
+  }, [userData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +62,7 @@ const AddEditUserForm = ({ edit }) => {
 
     if (edit) {
       editUser(
-        userId,
+        userId ? userId : userData.id,
         gender,
         service,
         lastname,
@@ -194,13 +198,18 @@ const AddEditUserForm = ({ edit }) => {
           onChange={(e) => setPhoto(e.target.value)}
           placeholder="https://"
         />
-        <label htmlFor="isAdmin">Administrateur</label>
-        <input
-          type="checkbox"
-          name="isAdmin"
-          value={isAdmin}
-          onChange={(e) => setIsAdmin(e.target.checked)}
-        />
+        {userData?.isAdmin && (
+          <>
+            <label htmlFor="isAdmin">Administrateur</label>
+            <input
+              type="checkbox"
+              name="isAdmin"
+              value={isAdmin}
+              checked={isAdmin}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+            />
+          </>
+        )}
         {errorMsg && <span className="errorMsg">{errorMsg}</span>}
         <button type="submit" className="button">
           {edit ? "MODIFIER" : "AJOUTER"}

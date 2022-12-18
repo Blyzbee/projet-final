@@ -18,11 +18,15 @@ const AllCollaborators = () => {
   useEffect(() => {
     if (!loading && !userData) navigate("/");
     if (!loading && userData) {
-      getAllUsers()
-        .then((res) => setCollaborators(res.data))
-        .catch((err) => console.log(err));
+      fetchAllUsers();
     }
   }, [loading, userData]);
+
+  const fetchAllUsers = () => {
+    getAllUsers()
+      .then((res) => setCollaborators(res.data))
+      .catch((err) => console.log(err));
+  };
 
   if (loading) return <Loading />;
   else
@@ -108,6 +112,7 @@ const AllCollaborators = () => {
                 <CollaboratorCard
                   key={collaborator.id}
                   userInfos={collaborator}
+                  fetchAllUsers={fetchAllUsers}
                 />
               ))}
         </div>

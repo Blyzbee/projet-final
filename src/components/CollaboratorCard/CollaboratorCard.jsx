@@ -5,7 +5,7 @@ import { deleteUser } from "../../services/axios";
 import { birthdateParsing } from "../../services/utils";
 import "./collaboratorCard.css";
 
-const CollaboratorCard = ({ userInfos, refreshData }) => {
+const CollaboratorCard = ({ userInfos, fetchAllUsers }) => {
   const { userData } = useContext(UserDataContext);
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const CollaboratorCard = ({ userInfos, refreshData }) => {
           </button>
           <button
             className="button warning"
-            onClick={() => deleteUser(userInfos.id).then(() => refreshData())}
+            onClick={() => deleteUser(userInfos.id).then(() => fetchAllUsers())}
           >
             Supprimer
           </button>

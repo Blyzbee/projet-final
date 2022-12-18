@@ -111,6 +111,7 @@ export const editUser = async (
 
 // DELETE USER
 export const deleteUser = async (userId) => {
+  if (!confirm("Voulez-vous vraiment suprimer cet utilisateur ?")) return;
   const res = await axios.delete(`${serverURL}/api/collaborateurs/${userId}`);
   return res;
 };
