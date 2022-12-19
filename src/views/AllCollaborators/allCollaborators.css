@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
   gap: 10px;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .all-collaborators h2 {
