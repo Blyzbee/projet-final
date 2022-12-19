@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Loading from "../../components/Loading/Loading";
 import UserDataContext from "../../contexts/UserContext";
 import { getAllUsers } from "../../services/axios";
+import "./allCollaborators.css";
 
 const AllCollaborators = () => {
   const { userData, loading } = useContext(UserDataContext);
@@ -33,7 +34,7 @@ const AllCollaborators = () => {
     return (
       <>
         <Header />
-        <div className="allCollaborators">
+        <div className="all-collaborators">
           <h2>Liste des collaborateurs</h2>
           <div className="filter">
             <input
