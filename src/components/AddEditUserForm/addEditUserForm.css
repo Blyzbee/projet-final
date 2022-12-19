@@ -1,8 +1,17 @@
+.add-edit-user-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-edit-user-form form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: center;
+  margin: 30px;
+  max-width: 800px;
+  min-width: min(500px, 100%);
 }
 
 .add-edit-user-form label {
