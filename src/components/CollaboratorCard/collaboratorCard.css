@@ -1,7 +1,6 @@
 .collaborator-card {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   overflow: hidden;
   border: 1px solid var(--dark-color);
   border-radius: 20px;
@@ -10,6 +9,8 @@
 .collaborator-card > div:nth-child(2) {
   display: flex;
   flex-direction: column;
+  padding: 20px 20px;
+  justify-content: center;
 }
 
 .collaborator-card .service {
@@ -22,13 +23,15 @@
 }
 
 .collaborator-card .img-container {
-  width: 200px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 150px;
   overflow: hidden;
 }
 
 .collaborator-card .img-container img {
-  min-width: 100%;
   min-height: 100%;
 }
 

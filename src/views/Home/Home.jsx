@@ -4,6 +4,7 @@ import CollaboratorCard from "../../components/CollaboratorCard/CollaboratorCard
 import Header from "../../components/Header/Header";
 import UserDataContext from "../../contexts/UserContext";
 import { getRandomUser } from "../../services/axios";
+import "./home.css";
 
 const Home = () => {
   const navigate = useNavigate();
