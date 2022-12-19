@@ -4,6 +4,8 @@ import UserDataContext from "../../contexts/UserContext";
 import { deleteUser } from "../../services/axios";
 import { birthdateParsing } from "../../services/utils";
 import "./collaboratorCard.css";
+import editimg from "../../assets/icons/edit.svg";
+import deleteimg from "../../assets/icons/delete.svg";
 
 const CollaboratorCard = ({ userInfos, fetchAllUsers }) => {
   const { userData } = useContext(UserDataContext);
@@ -11,10 +13,12 @@ const CollaboratorCard = ({ userInfos, fetchAllUsers }) => {
 
   return (
     <div className="collaborator-card">
-      <img
-        src={userInfos.photo}
-        alt={`${userInfos.firstname} ${userInfos.lastname}`}
-      />
+      <div className="img-container">
+        <img
+          src={userInfos.photo}
+          alt={`${userInfos.firstname} ${userInfos.lastname}`}
+        />
+      </div>
       <div>
         <span className="service">{userInfos.service}</span>
         <h3>
@@ -31,16 +35,14 @@ const CollaboratorCard = ({ userInfos, fetchAllUsers }) => {
       {userData?.isAdmin && (
         <div className="buttons-container">
           <button
-            className="button"
             onClick={() => navigate(`/edit-collaborator/${userInfos.id}`)}
           >
-            Editer
+            <img src={editimg} alt="Modifier l'utilisateur" />
           </button>
           <button
-            className="button warning"
             onClick={() => deleteUser(userInfos.id).then(() => fetchAllUsers())}
           >
-            Supprimer
+            <img src={deleteimg} alt="Supprimer l'utilisateur" />
           </button>
         </div>
       )}

@@ -1,5 +1,6 @@
 :root {
   --primary-color: #87ceeb;
+  --secondary-color: #ffa07a;
   --dark-color: #242424;
   --light-color: #f9f9f9;
   --darkblue-color: #213547;
@@ -38,6 +39,7 @@ body {
 
 h2 {
   text-align: center;
+  color: var(--secondary-color);
 }
 
 input,
@@ -53,6 +55,11 @@ input[type="checkbox"] {
 
 .errorMsg {
   color: var(--error-color);
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 .button {
