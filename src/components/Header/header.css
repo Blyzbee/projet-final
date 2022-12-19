@@ -5,7 +5,8 @@
 }
 
 .header a {
-  padding: 20px;
+  padding: 5px;
+  margin: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +21,17 @@ hr {
   color: transparent;
   border-bottom: 1px var(--dark-color) solid;
   width: 80%;
+}
+
+.activeNav {
+  position: relative;
+}
+
+.activeNav::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
 }

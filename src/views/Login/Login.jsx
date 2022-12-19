@@ -21,7 +21,7 @@ const Login = () => {
   } else
     return (
       <div className="login">
-        <h2>Page de login</h2>
+        <h2>Connexion</h2>
         <form
           onSubmit={(e) => {
             e.preventDefault();

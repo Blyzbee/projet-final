@@ -36,6 +36,10 @@ body {
   min-height: 100vh;
 }
 
+h2 {
+  text-align: center;
+}
+
 input,
 select {
   padding: 10px;

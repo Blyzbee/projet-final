@@ -16,21 +16,33 @@ const Header = () => {
     return (
       <>
         <div className="header">
-          <NavLink to="/home">
+          <NavLink
+            to="/home"
+            className={({ isActive }) => (isActive ? "activeNav" : "")}
+          >
             <img src={homeimg} alt="Accueil" />
             Accueil
           </NavLink>
-          <NavLink to="/all-collaborators">
+          <NavLink
+            to="/all-collaborators"
+            className={({ isActive }) => (isActive ? "activeNav" : "")}
+          >
             <img src={groupimg} alt="Liste de tous les collaborateurs" />
             Collaborateurs
           </NavLink>
           {userData.isAdmin && (
-            <NavLink to="/add-collaborator">
+            <NavLink
+              to="/add-collaborator"
+              className={({ isActive }) => (isActive ? "activeNav" : "")}
+            >
               <img src={addUserimg} alt="Ajouter un utilisateur" />
               Nouveau Collaborateur
             </NavLink>
           )}
-          <NavLink to="/profile">
+          <NavLink
+            to="/profile"
+            className={({ isActive }) => (isActive ? "activeNav" : "")}
+          >
             <img src={accountimg} alt="Profil" />
             Profil
           </NavLink>
