@@ -1,6 +1,7 @@
 .collaborator-card {
   position: relative;
-  display: flex;
+  text-align: center;
+  grid-template-columns: auto 1fr;
   overflow: hidden;
   border: 1px solid var(--dark-color);
   border-radius: 20px;
@@ -44,4 +45,11 @@
 .collaborator-card .buttons-container img {
   width: 25px;
   height: 25px;
+}
+
+@media (min-width: 515px) {
+  .collaborator-card {
+    display: grid;
+    text-align: start;
+  }
 }
