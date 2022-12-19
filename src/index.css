@@ -26,6 +26,10 @@ a:hover {
   color: var(--primary-color);
 }
 
+#root {
+  width: 100%;
+}
+
 body {
   margin: 0;
   display: flex;

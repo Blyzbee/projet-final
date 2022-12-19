@@ -1,16 +1,16 @@
-form {
+.add-edit-user-form form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: center;
 }
 
-label {
+.add-edit-user-form label {
   text-align: right;
 }
 
-.button,
-.errorMsg {
+.add-edit-user-form .button,
+.add-edit-user-form .errorMsg {
   grid-column: 1 / -1;
   margin: auto;
 }
